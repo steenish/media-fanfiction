@@ -3,15 +3,40 @@
     <head>
         <title>Media Fanfiction</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            body {
+                max-width: 700px;
+                margin: auto;
+                font-family: Verdana, Geneva, sans-serif;
+                background-color: #555555;
+            }
+
+            .container {
+                background-color: #999999;
+                margin-top: 100px;
+                padding: 20px;
+                padding-top: 1px;
+            }
+        </style>
     </head>
     <body>
-        <input id="replacerField" name="replaceString" type="text" value="media">
-        <label for="replaceString">Lägg till er egen text här och tryck på enter.</label>
-        <p id="copypasta">
-            Vad är ens "<span class="replace capital">Media</span>". Jag tror det här med "<span class="replace">media</span>" är något helt påhittat... Det låter som allt om <span class="replace">media</span> är skapat ur någon fanfiction... jag har igen aldrig hört talats om den eller sett det för den delen, jag är fortfarande osäker vad <span class="replace">media</span> ens är.
-        </p>
-        <input name="copyButton" id="copyButton" type="button" value="Kopiera till klippbrädan">
-        <label style="display:none" for="copyButton">Kopierat!</label>
+        <div class="container">
+            <div>
+                <h1>Media Fanfiction</h1>
+                <input id="replacerField" name="replaceString" type="text" value="media">
+                <label for="replaceString">Lägg till er egen text här och tryck på enter.</label>
+            </div>
+            <div>
+                <hr>
+                <p id="copypasta">
+                    Vad är ens "<span class="replace capital">Media</span>". Jag tror det här med "<span class="replace">media</span>" är något helt påhittat... Det låter som allt om <span class="replace">media</span> är skapat ur någon fanfiction... jag har igen aldrig hört talats om den eller sett det för den delen, jag är fortfarande osäker vad <span class="replace">media</span> ens är.
+                </p>
+                <hr>
+                <input name="copyButton" id="copyButton" type="button" value="Kopiera till klippbrädan">
+                <label style="display:none" for="copyButton">Kopierat!</label>
+            </div>
+            
+        </div>
 
         <script>
             $(document).ready(function() {
