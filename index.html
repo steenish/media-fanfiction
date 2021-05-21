@@ -5,18 +5,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
-        <input name="replaceString" type="text" value="media">
+        <input id="replacerField" name="replaceString" type="text" value="media">
         <label for="replaceString">Lägg till er egen text här och tryck på enter.</label>
-        <p>
+        <p id="copypasta">
             Vad är ens "<span class="replace capital">Media</span>". Jag tror det här med "<span class="replace">media</span>" är något helt påhittat... Det låter som allt om <span class="replace">media</span> är skapat ur någon fanfiction... jag har igen aldrig hört talats om den eller sett det för den delen, jag är fortfarande osäker vad <span class="replace">media</span> ens är.
         </p>
+        <input name="copyButton" id="copyButton" type="button" value="Kopiera till klippbrädan">
+        <label style="display:none" for="copyButton">Kopierat!</label>
 
         <script>
-            $("input").change(function() {
-                replacer = $("input").val().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;")
-                replacerCapitalized = replacer.charAt(0).toUpperCase() + replacer.slice(1)
-                $(".replace").html(replacer)
-                $(".capital").html(replacerCapitalized)
+            $(document).ready(function() {
+                $("#replacerField").change(function() {
+                    replacer = $("#replacerField").val().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;")
+                    replacerCapitalized = replacer.charAt(0).toUpperCase() + replacer.slice(1)
+                    $(".replace").html(replacer)
+                    $(".capital").html(replacerCapitalized)
+                })
+
+                $("#copyButton").click(function() {
+                    var text = $("#copypasta").text().trim()
+                    var elem = document.createElement("textarea")
+                    document.body.appendChild(elem)
+                    elem.value = text
+                    elem.select()
+                    document.execCommand("copy")
+                    document.body.removeChild(elem)
+
+                    $('label[for="copyButton"]').show();
+                })
             })
         </script>
     </body>
