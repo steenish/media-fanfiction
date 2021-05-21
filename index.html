@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Media Fanfiction</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <input name="replaceString" type="text" value="media">
+        <label for="replaceString">Lägg till er egen text här och tryck på enter.</label>
+        <p>
+            Vad är ens "<span class="replace capital">Media</span>". Jag tror det här med "<span class="replace">media</span>" är något helt påhittat... Det låter som allt om <span class="replace">media</span> är skapat ur någon fanfiction... jag har igen aldrig hört talats om den eller sett det för den delen, jag är fortfarande osäker vad <span class="replace">media</span> ens är.
+        </p>
+
+        <script>
+            $("input").change(function() {
+                replacer = $("input").val().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;")
+                replacerCapitalized = replacer.charAt(0).toUpperCase() + replacer.slice(1)
+                $(".replace").html(replacer)
+                $(".capital").html(replacerCapitalized)
+            })
+        </script>
+    </body>
+</html>
